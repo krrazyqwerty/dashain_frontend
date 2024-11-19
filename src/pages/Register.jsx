@@ -1,43 +1,40 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom"; // Added for navigation
+import { useNavigate } from "react-router-dom";
+import api from "../utils/api"
+import toast from "react-hot-toast"
 
 export default function Register() {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     username: "",
     email: "",
     password: "",
   });
-  const [error, setError] = useState(null); // Added to handle errors
-  const { username, email, password } = formData;
-  const navigate = useNavigate(); // Initialize navigate
-
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
+  const [error, setError] = useState(null);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch("/register", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ username, email, password }),
+      const response = await api.post("/auth/register", formData);
+      localStorage.setItem("token", response.data.token);
+      toast.success("Registration successful!");
+      navigate("/events");
+      setFormData({
+        username: "",
+        email: "",
+        password: "",
       });
-      const data = await response.json();
-      if (!response.ok) {
-        setError(data.msg); // Set error if response is not ok
-      } else {
-        setError(null); // Clear error if response is ok
-        console.log(data.message);
-        // Redirect to login page after successful registration
-        navigate("/login"); // Using navigate for redirection
-      }
     } catch (error) {
-      setError("Error: " + error.message); // Set error if catch block is reached
+      setError(error.response?.data?.message || "Registration failed");
     }
+  };
+
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
   };
 
   return (
@@ -60,7 +57,7 @@ export default function Register() {
               placeholder="Enter your Username"
               className="mt-1 block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-blue-300"
               required
-              value={username}
+              value={formData.username}
               onChange={handleChange}
             />
           </div>
@@ -76,7 +73,7 @@ export default function Register() {
               placeholder="Enter your Email"
               className="mt-1 block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-blue-300"
               required
-              value={email}
+              value={formData.email}
               onChange={handleChange}
             />
           </div>
@@ -92,7 +89,7 @@ export default function Register() {
               placeholder="Enter your Password"
               className="mt-1 block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-blue-300"
               required
-              value={password}
+              value={formData.password}
               onChange={handleChange}
             />
           </div>
@@ -111,7 +108,7 @@ export default function Register() {
           </Link>
           .
         </p>
-        {error && <p className="mt-4 text-red-500">{error}</p>} 
+        {error && <p className="mt-4 text-red-500">{error}</p>}
       </div>
     </div>
   );

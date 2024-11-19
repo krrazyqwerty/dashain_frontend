@@ -9,7 +9,7 @@ export default function Event() {
   // Pseudo events for demonstration
   const events = [
     {
-      name: "New Year Party",
+      name: "End of Year Party!",
       date: "2024-12-31",
       description: "Celebrate the end year party bash!",
       participants: ["John Doe", "Jane Smith", "Bob Wilson"],
@@ -19,7 +19,7 @@ export default function Event() {
       isVirtual: false,
     },
     {
-      name: "New Year Party",
+      name: "New Year Party!",
       date: "2025-01-01",
       description: "Celebrate the start of a new year with us!",
       participants: ["John Doe", "Jane Smith", "Bob Wilson"],
