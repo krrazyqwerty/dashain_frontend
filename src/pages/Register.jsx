@@ -38,7 +38,7 @@ export default function Register() {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gradient-to-r from-blue-200 to-blue-500">
+    <div className="flex items-center justify-center min-h-screen bg-gradient-to-r from-purple-300 to-blue-300 font-mono font-bold m-1">
       <div className="bg-white rounded-lg shadow-lg p-8 max-w-md w-full text-center">
         <h1 className="text-3xl font-bold mb-6">Registration Page</h1>
         <p className="text-gray-700 mb-4">

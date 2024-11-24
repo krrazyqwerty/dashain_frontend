@@ -9,12 +9,14 @@ import ViewPhotos from "./components/ViewPhotos";
 import PhotoUpload from "./components/PhotoUpload";
 import Photo from './pages/Photo'
 import Event from './pages/Event'
-import "./app.css";
+import Dashboard from "./pages/DashBoard";
+import Family from "./pages/Family"
+import "./App.css";
 
 function App() {
   return (
     <Router>
-      <div className="container m-auto">
+      <div className="">
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
@@ -25,6 +27,8 @@ function App() {
           <Route path="/view" element={<ViewPhotos/>}/>
           <Route path="/events" element={<Event/>} />
           <Route path="/createEvent" element={<CreateEvent/>} />
+          <Route path="/dashboard" element={<Dashboard/>}/>
+          <Route path="/family" element={<Family/>}/>
         </Routes>
       </div>
     </Router>

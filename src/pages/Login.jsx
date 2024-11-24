@@ -1,8 +1,8 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
-import { LogIn} from "lucide-react"
-import toast from "react-hot-toast"
-import api from "../utils/api"
+import { LogIn } from "lucide-react";
+// import toast from "react-hot-toast";
+// import api from "../utils/api";
 
 export default function Login() {
   // const navigate = useNavigate();
@@ -19,7 +19,7 @@ export default function Login() {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gradient-to-r from-blue-200 to-gray-500">
+    <div className="flex items-center justify-center min-h-screen bg-gradient-to-r from-purple-300 to-blue-300 font-mono font-bold m-1">
       <form
         id="login-form"
         name="login-form"
@@ -27,7 +27,7 @@ export default function Login() {
         onSubmit={handleLogin}>
         <h2 className="text-2xl font-bold text-center mb-6">Login</h2>
 
-        <div className="mb-4">
+        <div className="mb-4 text-center">
           <label htmlFor="login" className="block text-gray-700">
             Username:
           </label>
@@ -43,7 +43,7 @@ export default function Login() {
           />
         </div>
 
-        <div className="mb-6">
+        <div className="mb-4 text-center">
           <label htmlFor="password" className="block text-gray-700">
             Password:
           </label>
@@ -62,17 +62,24 @@ export default function Login() {
         <div>
           <button
             type="submit"
-            className="w-full bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700 transition duration-200">
+            className="flex flex-wrap justify-center gap-2 w-full bg-blue-600 text-white py-2 rounded-md hover:bg-blue-800 transition duration-900">
+              {" "}
+              <LogIn />
             Login
           </button>
 
-          <p className="mt-4 text-gray-600">
-            Are you a new user? Please {" "}
-            <Link to="/register" className="text-blue-600 hover:underline">
-              register
-            </Link>
-            , here first and be a Proud Family Member!❤
-          </p>
+          <div className="mt-4 text-center text-gray-600">
+            <p>
+              Are you a new user❓
+            </p>
+            <p>
+              Please{" "}
+              <Link to="/register" className="text-blue-600 hover:underline">
+                register
+              </Link>
+              , here first and be a Happy 😊 Family Member!🧡
+            </p>
+          </div>
         </div>
       </form>
     </div>

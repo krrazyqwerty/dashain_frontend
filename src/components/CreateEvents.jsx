@@ -1,37 +1,66 @@
-export default function CreateEvent() {
+export default function CreateEvent(onClose) {
   return (
-    <div className="flex items-center justify-center min-h-[560px] bg-gray-100">
-      <form className="bg-white p-6 rounded shadow-md w-1/2">
-        <h1 className="text-2xl font-bold font-mono text-white mb-4">
+    <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">
+      <div className="bg-white p-6 rounded shadow-md w-full max-w-md">
+        <button className="text-2xl font-bold font-mono text-gray-800 mb-4">
           Create Event
-        </h1>
-        <div className="mb-4">
-          <label className="block mb-1">Title</label>
-          <input type="text" className="border border-gray-300 p-2 w-full" />
-        </div>
-        <div className="mb-4">
-          <label className="block mb-1">Date</label>
-          <input type="date" className="border border-gray-300 p-2 w-full" />
-        </div>
-        <div className="mb-4">
-          <label className="block mb-1">Description</label>
-          <textarea
-            className="border border-gray-300 p-2 w-full"
-            rows="4"></textarea>
-        </div>
-        <div className="flex justify-end gap-8">
-          <button
-            type="button"
-            className="px-3 py-2 bg-gray-200 hover:bg-gray-500 rounded-md">
-            Cancel
-          </button>
-          <button
-            type="submit"
-            className="px-3 py-2 bg-blue-600 hover:bg-blue-800 rounded-md">
-            Create
-          </button>
-        </div>
-      </form>
+        </button>
+        <form>
+          <div className="mb-4">
+            <label
+              htmlFor="eventName"
+              className="block text-gray-700 mb-2 items-center">
+              <b>Event Name</b>
+            </label>
+            <input
+              type="text"
+              id="eventName"
+              name="eventName"
+              className="mb-4 p-2 rounded-md border border-gray-300 w-full"
+            />
+          </div>
+          <div className="mb-4">
+            <label htmlFor="eventDate" className="block text-gray-700 mb-2">
+              <b>Event Date</b>
+            </label>
+            <input
+              type="date"
+              id="eventDate"
+              name="eventDate"
+              className="mb-4 p-2 rounded-md border border-gray-300 w-full"
+            />
+          </div>
+          <div className="mb-4">
+            <label
+              htmlFor="eventDescription"
+              className="block text-gray-700 mb-2">
+              <b>Event Description</b>
+            </label>
+            <textarea
+              id="eventDescription"
+              name="eventDescription"
+              rows="4"
+              className="mb-4 p-2 rounded-md border border-gray-300 w-full"></textarea>
+          </div>
+          <div className="flex flex-end justify-between text-xl rounded-md px-2 py-1 mb-4">
+            <button
+              type="submit"
+              className="px-3 py-2 bg-blue-600 hover:bg-blue-800 rounded-md">
+              Create Event
+            </button>
+            <button
+              type="reset"
+              className="px-3 py-2 bg-yellow-600 hover:bg-yellow-800 rounded-md ml-2">
+              Reset
+            </button>
+            <button
+              onClick={() => onClose()}
+              className="px-3 py-2 bg-red-600 hover:bg-red-800 rounded-md ml-2">
+              Cancel
+            </button>
+          </div>
+        </form>
+      </div>
     </div>
   );
 }
