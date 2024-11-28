@@ -1,11 +1,17 @@
-export default function CreateEvent(onClose) {
+export default function CreateEvent({ onClose }) {
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    // Add logic to handle form data here
+    // After processing, you can call onClose() to close the form
+  };
+
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">
       <div className="bg-white p-6 rounded shadow-md w-full max-w-md">
         <button className="text-2xl font-bold font-mono text-gray-800 mb-4">
           Create Event
         </button>
-        <form>
+        <form onSubmit={handleSubmit}>
           <div className="mb-4">
             <label
               htmlFor="eventName"
@@ -17,6 +23,7 @@ export default function CreateEvent(onClose) {
               id="eventName"
               name="eventName"
               className="mb-4 p-2 rounded-md border border-gray-300 w-full"
+              required
             />
           </div>
           <div className="mb-4">
@@ -28,6 +35,7 @@ export default function CreateEvent(onClose) {
               id="eventDate"
               name="eventDate"
               className="mb-4 p-2 rounded-md border border-gray-300 w-full"
+              required
             />
           </div>
           <div className="mb-4">
@@ -40,7 +48,9 @@ export default function CreateEvent(onClose) {
               id="eventDescription"
               name="eventDescription"
               rows="4"
-              className="mb-4 p-2 rounded-md border border-gray-300 w-full"></textarea>
+              className="mb-4 p-2 rounded-md border border-gray-300 w-full"
+              required
+            ></textarea>
           </div>
           <div className="flex flex-end justify-between text-xl rounded-md px-2 py-1 mb-4">
             <button
@@ -54,7 +64,8 @@ export default function CreateEvent(onClose) {
               Reset
             </button>
             <button
-              onClick={() => onClose()}
+              type="button"
+              onClick={onClose}
               className="px-3 py-2 bg-red-600 hover:bg-red-800 rounded-md ml-2">
               Cancel
             </button>

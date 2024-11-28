@@ -25,14 +25,13 @@ export default function Family() {
 
   return (
     <div className="min-h-screen m-1 bg-gradient-to-r from-purple-300 to-blue-300 font-mono font-bold">
+      
       {/* yo search bar ko lagi matra, yesma chai search icon vitra halna lai dherai time liyo */}
-      <div className="flex flex-grid p-3">
+      <div className="flex flex-grid justify-center text-xl p-3">
         <div className="relative w-full">
-          <Search className="absolute left-2 top-2" style={{
-            marginLeft: "2px",
-            marginRight: "2px",
-            marginTop: "2px",
-            marginBottom: "2px"
+          <Search className="absolute left-2 top-3"
+           style={{
+            margin:"2px"
           }}/>
 
         {/* <input
@@ -47,8 +46,9 @@ export default function Family() {
             borderRadius: "10px",
           }}
         /> */}
+
          <input
-            className="mt-1 block w-full pl-10 p-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-blue-300"
+            className="mt-1 block w-full pl-10 p-2 border border-black rounded-md focus:outline-none focus:ring focus:ring-blue-400"
             type="text"
             placeholder="Search for your Family Members here!"
             required
@@ -89,7 +89,7 @@ export default function Family() {
 
                 {/*yeta bata add ko suru vayo*/}
                 <div className="flex justify-end">
-                  <button className="flex rounded-md mx-1 p-1 gap-2 bg-blue-300 hover:bg-blue-800 ">
+                  <button className="flex rounded-md mx-1 p-1 gap-2 bg-blue-300 hover:bg-blue-500 ">
                     <Plus />
                     Add as Family
                   </button>

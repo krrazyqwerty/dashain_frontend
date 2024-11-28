@@ -1,20 +1,20 @@
 import { useState } from "react";
-import { Scroll, Plus, Calendar} from "lucide-react";
+import { Scroll, Plus, Calendar } from "lucide-react";
 import CreateEvent from "../components/CreateEvents";
 import EventCard from "../components/EventCard";
 
 export default function Event() {
   const [showCreateEventForm, setShowCreateEventForm] = useState(false);
   // const [showMyEvents, setShowMyEvents] = useState(false);
-  const closeModel=()=>{
-setShowCreateEventForm(false); 
-  } 
+  const closeModel = () => {
+    setShowCreateEventForm(false);
+  };
   // Pseudo events for demonstration
   const events = [
     {
       name: "End of Year Party!",
       date: "2024-12-31",
-      description: "Celebrate the end year party bash!",
+      description: "Celebrate the end year party bash to welcome a new year!",
       participants: ["John Doe", "Jane Smith", "Bob Wilson"],
       createdAt: "2023-12-01T09:30:00Z",
       location: "Convention Center",
@@ -77,7 +77,6 @@ setShowCreateEventForm(false);
       capacity: 100,
       isVirtual: true,
     },
-    
   ];
 
   // Psuedo unjoined events for demonstration
@@ -128,8 +127,7 @@ setShowCreateEventForm(false);
       capacity: 50,
       isVirtual: false,
     },
-    
-  ]
+  ];
 
   return (
     <div className="flex flex-grid m-1 min-h-[635px] bg-gradient-to-r from-purple-300 to-blue-300 font-mono font-bold">
@@ -139,11 +137,12 @@ setShowCreateEventForm(false);
             <Scroll />
             <b className="font-bold font-mono mx-2">My Events</b>
           </div>
-          <div className="flex flex-end text-xl bg-blue-600 rounded-md px-2 py-1 mb-4">
-            <Plus />
+          
+          <div className="text-xl rounded-md font-bold font-mono ">
             <button
               onClick={() => setShowCreateEventForm(!showCreateEventForm)}
-              className="font-bold font-mono mx-2 hover:bg-blue-800">
+              className="flex flex-grid font-bold mx-3 px-2 py-1 mb-4 gap-2 rounded bg-blue-400 hover:bg-blue-500">
+              <Plus />
               {showCreateEventForm ? "Create Events" : "Create Events"}
             </button>
           </div>
@@ -154,25 +153,21 @@ setShowCreateEventForm(false);
           ))}
         </div>
 
-
         <div className="flex flex-start text-xl px-2 py-1 mt-1 mb-4">
-            <Calendar />
-            <h1 className="font-bold font-mono mx-2">Upcoming Family Events from your 🤞 Friends & 👨‍👩‍👧‍👦 Families that you may like 💗</h1>
-          </div>
-          <div className="flex flex-col-3 flex-wrap justify-between gap-2 mx-1 ">
+          <Calendar />
+          <h1 className="font-bold font-mono mx-2">
+            Upcoming Family Events from your 🤞 Friends & 👨‍👩‍👧‍👦 Families that you
+            may like 💗
+          </h1>
+        </div>
+        <div className="flex flex-col-3 flex-wrap justify-between gap-2 mx-1 ">
           {unjoinedEvents.map((event) => (
             <EventCard key={event.name} event={event} />
           ))}
         </div>
 
-
-
-        {showCreateEventForm && <CreateEvent onClose={closeModel}/>}
+        {showCreateEventForm && <CreateEvent onClose={closeModel} />}
       </div>
     </div>
   );
 }
-
-/*
-yo vanda tala ko chai feri try garnu parchha, alomost finished yet not completed
-*/

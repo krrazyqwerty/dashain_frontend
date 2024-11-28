@@ -25,6 +25,13 @@ export default function Navbar() {
             Photos
           </Link>
         </li>
+        {/* <li>
+          <Link
+            to="/images"
+            className="text-white hover:text-gray-300 transition duration-200">
+            Images
+          </Link>
+        </li> */}
         <li>
           <Link
             to="/events"

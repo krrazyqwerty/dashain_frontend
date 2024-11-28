@@ -42,8 +42,6 @@ export default function FamilyCard() {
           <div
             key={index}
             className="max-w-sm justify-between rounded-xl overflow-hidden bg-slate-800 m-4 flex flex-col">
-            
-            
             {/* image ko lagi gareko */}
             <div className="flex items-center">
               <div>
