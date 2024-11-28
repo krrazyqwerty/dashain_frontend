@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
+import Login from "./pages/Login"
+import Register from "./pages/Register"
 import Navbar from "./components/NavBar";
 import Event from "./pages/Event";
 import Photo from "./pages/Photo";
@@ -15,6 +17,8 @@ export default function App() {
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/login" element={<Login/>}/>
+          <Route path="/register" element={<Register/>}/>
           <Route path="/photos" element={<Photo />} />
           <Route path="/events" element={<Event />} />
           <Route path="/family" element={<Family />} />

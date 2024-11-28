@@ -8,10 +8,10 @@ export default function PhotoModal  ({ isOpen, onClose, imageUrl, imageTitle }) 
       <div className="relative w-full h-full flex items-center justify-center">
         <button 
           onClick={onClose} 
-          className="absolute top-4 right-4 text-gray-300 hover:text-white text-3xl rounded-full p-4 transition duration-300"
-          style={{ backgroundColor: 'rgba(0, 0, 0, 0.5)' }}
+          className="absolute top-4 right-4 text-gray-300 hover:text-red-300 text-5xl rounded-full px-4 transition duration-200"
+          style={{ backgroundColor: 'rgba(0, 0, 0, 0)' }}
         >
-          &times; {/* Close icon */}
+          &times; {/* Close icon, simple words ma vannu parda yesle chai 'X' lai represent garchha */}
         </button>
         <img src={imageUrl} alt={imageTitle} className="w-full h-full object-contain" />
       </div>

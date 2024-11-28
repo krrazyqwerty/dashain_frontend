@@ -1,8 +1,7 @@
 export default function CreateEvent({ onClose }) {
   const handleSubmit = (event) => {
     event.preventDefault();
-    // Add logic to handle form data here
-    // After processing, you can call onClose() to close the form
+      //prevent default to clear the form after submitting so that previous data clears out
   };
 
   return (

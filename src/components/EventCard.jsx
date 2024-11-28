@@ -21,7 +21,7 @@ export default function EventCard({event}) {
       </p>
       <button
         onClick={() => (window.location.href = `/events/${event.name}`)}
-        className="px-3 py-2 bg-blue-600 hover:bg-blue-800 rounded-md">
+        className="px-3 py-2 bg-blue-300 hover:bg-blue-500 rounded-md">
         View Details
       </button>
     </div>

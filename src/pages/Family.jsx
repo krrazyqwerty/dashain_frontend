@@ -61,7 +61,7 @@ export default function Family() {
 
       {/* yeta bata profile card suru vayo*/}
       <div>
-        <div className="flex flex-grid flex-wrap gap-2">
+        <div className="flex flex-grid flex-wrap justify-center gap-2">
           {filteredMembers.map((member, index) => (
             <div
               key={index}
@@ -96,7 +96,7 @@ export default function Family() {
                 </div>
                 {/*yeta add ko sakiyo */}
               </div>
-              {/*yeta chai pic and add ko sakiyo */}
+              {/*yeta chai profile pic and add ko sakiyo */}
 
               {/* yeta bata description ko suru vayo */}
               <div className="px-6 py-4">
@@ -105,8 +105,6 @@ export default function Family() {
                 </p>
               </div>
               {/*yeta descrption ko add garna baki chha, pacchi gaenu chha */}
-
-
             </div>
           ))}
         </div>

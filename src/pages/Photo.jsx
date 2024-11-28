@@ -158,8 +158,7 @@ export default function Photo() {
 
      
       <FamilyPhotos 
-          photos={ activeView ==="my"?myphotos:listPhoto} 
-                   
+          photos={ activeView ==="my"?myphotos:listPhoto}        
           />
           {showUpload && <PhotoUpload onClose={closeModel}/>}
     </div>

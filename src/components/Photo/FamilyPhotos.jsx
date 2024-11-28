@@ -7,8 +7,6 @@ export default function FamilyPhotos({ photos }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedImage, setSelectedImage] = useState(null);
 
-
-
   const handleLike = (photoId) => {
     setLikesCount((prev) => ({
       ...prev,
@@ -16,7 +14,6 @@ export default function FamilyPhotos({ photos }) {
     }));
   };
 
-  
   const openModal = (photo) => {
     setSelectedImage(photo);
     setIsModalOpen(true);
@@ -40,17 +37,19 @@ export default function FamilyPhotos({ photos }) {
               <Trash className="w-4 h-4" />
             </button>
 
+            {/*yo chai photo ma like garna ko lagi ra like ko counter ko lagi */}
             <div className="absolute top-3 left-3 z-20 flex items-center bg-white/40 backdrop-blur-sm rounded-full px-3 py-1.5 space-x-2">
               <button
                 onClick={() => handleLike(photo.id)}
                 className="flex items-center">
                 <Heart className="w-6 h-6 fill-primary text-primary" />
-                <span className="text-white text-sm font-medium ml-1">
+                <span className="text-black text-sm font-medium ml-1">
                   {likesCount[photo.id] || 0}
                 </span>
               </button>
             </div>
 
+            {/*yo chai photo lai full screen banauna ko lagi ani fullscreen vayeko photo lai close garauna ko lagi */}
             <div className="relative aspect-[4/3]">
               <img
                 src={photo.url}
